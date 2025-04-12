@@ -1,0 +1,152 @@
+@base <http://example.com/ontology#> .
+@prefix : <http://example.com/ontology#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix schema: <http://schema.org/> .
+
+##################################################
+# Classes
+##################################################
+
+:TripPlan a rdfs:Class ; rdfs:label "Trip Plan" .
+:TripStep a rdfs:Class ; rdfs:label "Trip Step" .
+:TransportationLine a rdfs:Class ; rdfs:label "Transportation Line" .
+:TripPlanningService a rdfs:Class ; rdfs:label "Trip Planning Service" .
+:Operation a rdfs:Class ; rdfs:label "Operation" .
+:Stop a rdfs:Class ; rdfs:label "Stop" .
+:Ticket a rdfs:Class ; rdfs:label "Ticket" .
+
+##################################################
+# Trip Planning Services
+##################################################
+
+:flixbusPlatform a :TripPlanningService ;
+  rdfs:label "Flixbus Platform" ;
+  :hasOperation :flixPlanTrip ;
+  schema:url <https://www.flixbus.fr> .
+
+:stasPlatform a :TripPlanningService ;
+  rdfs:label "STAS Transport Service" ;
+  :hasOperation :stasPlanTrip ;
+  schema:url <https://www.reseau-stas.fr> .
+
+:ratpPlatform a :TripPlanningService ;
+  rdfs:label "RATP (Paris Metro) Service" ;
+  :hasOperation :ratpPlanTrip ;
+  schema:url <https://www.ratp.fr> .
+
+##################################################
+# Operations
+##################################################
+
+:flixPlanTrip a :Operation ;
+  rdfs:label "Plan trip on Flixbus" ;
+  :hasAffordance :flixPlanAffordance .
+
+:stasPlanTrip a :Operation ;
+  rdfs:label "Plan trip on STAS network" ;
+  :hasAffordance :stasPlanAffordance .
+
+:ratpPlanTrip a :Operation ;
+  rdfs:label "Plan trip on RATP network" ;
+  :hasAffordance :ratpPlanAffordance .
+
+##################################################
+# Trip Plan Instance
+##################################################
+
+:saintEtienneToEiffelTowerTrip a :TripPlan ;
+  :departureInput "Centre de Congrès, Saint-Étienne" ;
+  :arrivalInput "Eiffel Tower, Paris" ;
+  :departureDateInput "2025-03-29T06:00:00+01:00"^^xsd:dateTime ;
+  :hasTripForward :step1, :step2, :step3, :finalStep .
+
+##################################################
+# Trip Steps and Tickets
+##################################################
+
+:step1 a :TripStep ;
+  rdfs:label "STAS Bus M6 to Square Violette" ;
+  :departureTime "2025-03-29T06:00:00+01:00"^^xsd:dateTime ;
+  :arrivalTime "2025-03-29T06:10:00+01:00"^^xsd:dateTime ;
+  :usesLine :busM6 ;
+  :hasDestination :squareViolette ;
+  :requiresTicket :ticket1 ;
+  :providedBy :stasPlatform .
+
+:ticket1 a :Ticket ;
+  rdfs:label "STAS Bus Ticket" ;
+  :price "1.50"^^xsd:decimal ;
+  :currency "EUR" .
+
+:step2 a :TripStep ;
+  rdfs:label "Tram T2 to Châteaucreux" ;
+  :departureTime "2025-03-29T06:15:00+01:00"^^xsd:dateTime ;
+  :arrivalTime "2025-03-29T06:25:00+01:00"^^xsd:dateTime ;
+  :usesLine :tramT2 ;
+  :hasDestination :chateaucreux ;
+  :requiresTicket :ticket2 ;
+  :providedBy :stasPlatform .
+
+:ticket2 a :Ticket ;
+  rdfs:label "STAS Tram Ticket" ;
+  :price "1.50"^^xsd:decimal ;
+  :currency "EUR" .
+
+:step3 a :TripStep ;
+  rdfs:label "Flixbus Châteaucreux to Paris Bercy" ;
+  :departureTime "2025-03-29T07:00:00+01:00"^^xsd:dateTime ;
+  :arrivalTime "2025-03-29T12:30:00+01:00"^^xsd:dateTime ;
+  :usesLine :flixbusLine ;
+  :hasDestination :parisBercy ;
+  :requiresTicket :ticket3 ;
+  :providedBy :flixbusPlatform .
+
+:ticket3 a :Ticket ;
+  rdfs:label "Flixbus Ticket" ;
+  :price "19.99"^^xsd:decimal ;
+  :currency "EUR" .
+
+:finalStep a :TripStep ;
+  rdfs:label "Metro from Paris Bercy to Eiffel Tower" ;
+  :departureTime "2025-03-29T12:45:00+01:00"^^xsd:dateTime ;
+  :arrivalTime "2025-03-29T13:15:00+01:00"^^xsd:dateTime ;
+  :usesLine :parisMetro6 ;
+  :hasDestination :eiffelTower ;
+  :requiresTicket :ticket4 ;
+  :providedBy :ratpPlatform .
+
+:ticket4 a :Ticket ;
+  rdfs:label "Paris Metro Ticket" ;
+  :price "2.10"^^xsd:decimal ;
+  :currency "EUR" .
+
+##################################################
+# Transportation Lines and Stops
+##################################################
+
+:busM6 a :TransportationLine ;
+  rdfs:label "STAS Bus M6" ;
+  :hasStop :centreDeCongres, :squareViolette .
+
+:tramT2 a :TransportationLine ;
+  rdfs:label "Tram T2 Saint-Étienne" ;
+  :hasStop :squareViolette, :chateaucreux .
+
+:flixbusLine a :TransportationLine ;
+  rdfs:label "Flixbus Direct Line" ;
+  :hasStop :chateaucreux, :parisBercy .
+
+:parisMetro6 a :TransportationLine ;
+  rdfs:label "Paris Metro Line 6" ;
+  :hasStop :parisBercy, :eiffelTower .
+
+##################################################
+# Stops
+##################################################
+
+:centreDeCongres a :Stop ; rdfs:label "Centre de Congrès" .
+:squareViolette a :Stop ; rdfs:label "Square Violette" .
+:chateaucreux a :Stop ; rdfs:label "Gare Châteaucreux" .
+:parisBercy a :Stop ; rdfs:label "Paris Bercy Seine" .
+:eiffelTower a :Stop ; rdfs:label "Eiffel Tower" .
