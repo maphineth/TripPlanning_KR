@@ -1,0 +1,451 @@
+<?xml version="1.0"?>
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.semanticweb.org/dell/ontologies/TripPlanning"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     ontologyIRI="http://www.semanticweb.org/dell/ontologies/TripPlanning">
+    <Prefix name="" IRI="http://www.semanticweb.org/dell/ontologies/TripPlanning/"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <Literal xml:lang="en">This is a Trip Planning from Saint Etienne to Eiffel Tower</Literal>
+    </Annotation>
+    <Declaration>
+        <Class IRI="/Operation"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Stop"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Ticket"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/TransportationLine"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/TripPlan"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/TripPlanningService"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/TripStep"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/hasAffordance"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/hasDestination"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/hasOperation"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/hasStop"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/hasTripForward"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/providedBy"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/requiresTicket"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/usesLine"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="/arrivalInput"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="/arrivalTime"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="/currency"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="/departureDateInput"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="/departureInput"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="/departureTime"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="/price"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="/schema"/>
+    </Declaration>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="/hasAffordance"/>
+        <Class IRI="/Operation"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="/hasDestination"/>
+        <Class IRI="/TripStep"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="/hasOperation"/>
+        <Class IRI="/TripPlanningService"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="/hasStop"/>
+        <Class IRI="/TransportationLine"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="/hasTripForward"/>
+        <Class IRI="/TripPlan"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="/providedBy"/>
+        <Class IRI="/TripStep"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="/requiresTicket"/>
+        <Class IRI="/TripStep"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="/usesLine"/>
+        <Class IRI="/TripStep"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="/hasAffordance"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="/hasDestination"/>
+        <Class IRI="/Stop"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="/hasOperation"/>
+        <Class IRI="/Operation"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="/hasStop"/>
+        <Class IRI="/Stop"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="/hasTripForward"/>
+        <Class IRI="/TripStep"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="/providedBy"/>
+        <Class IRI="/TripPlanningService"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="/requiresTicket"/>
+        <Class IRI="/Ticket"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="/usesLine"/>
+        <Class IRI="/TransportationLine"/>
+    </ObjectPropertyRange>
+    <DataPropertyDomain>
+        <DataProperty IRI="/arrivalInput"/>
+        <Class IRI="/TripPlan"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="/arrivalTime"/>
+        <Class IRI="/TripStep"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="/currency"/>
+        <Class IRI="/Ticket"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="/departureDateInput"/>
+        <Class IRI="/TripPlan"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="/departureInput"/>
+        <Class IRI="/TripPlan"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="/departureTime"/>
+        <Class IRI="/TripStep"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="/price"/>
+        <Class IRI="/Ticket"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="/schema"/>
+        <Class IRI="/TripPlanningService"/>
+    </DataPropertyDomain>
+    <DataPropertyRange>
+        <DataProperty IRI="/arrivalInput"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="/arrivalTime"/>
+        <Datatype abbreviatedIRI="xsd:dateTime"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="/currency"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="/departureDateInput"/>
+        <Datatype abbreviatedIRI="xsd:dateTime"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="/departureInput"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="/departureTime"/>
+        <Datatype abbreviatedIRI="xsd:dateTime"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="/price"/>
+        <Datatype abbreviatedIRI="xsd:decimal"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="/schema"/>
+        <Datatype abbreviatedIRI="xsd:anyURI"/>
+    </DataPropertyRange>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/Operation</IRI>
+        <Literal xml:lang="en">Represents a function or action provided by a service, such as booking or cancelling.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/Operation</IRI>
+        <Literal xml:lang="en">Operation</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/Stop</IRI>
+        <Literal xml:lang="en">: A location along a transportation line where passengers may stop.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/Stop</IRI>
+        <Literal xml:lang="en">Stop</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/Ticket</IRI>
+        <Literal xml:lang="en">A document or token indicating that a traveler is allowed to a journey.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/Ticket</IRI>
+        <Literal xml:lang="en">Ticket</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/TransportationLine</IRI>
+        <Literal xml:lang="en">Represents a specific transportation route.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/TransportationLine</IRI>
+        <Literal xml:lang="en">TransportationLine</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/TripPlan</IRI>
+        <Literal xml:lang="en">An organized route or schedule containing various steps of a journey.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/TripPlan</IRI>
+        <Literal xml:lang="en">TripPlan</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/TripPlanningService</IRI>
+        <Literal xml:lang="en">A system or application that assists users in organizing and scheduling travel plans.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/TripPlanningService</IRI>
+        <Literal xml:lang="en">TripPlanningService</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/TripStep</IRI>
+        <Literal xml:lang="en">A segment or part of a complete trip, representing an individual leg of the journey.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/TripStep</IRI>
+        <Literal xml:lang="en">TripStep</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/arrivalInput</IRI>
+        <Literal xml:lang="en">The input field taking the arrival location or time.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/arrivalInput</IRI>
+        <Literal xml:lang="en">arrivalInput</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/arrivalTime</IRI>
+        <Literal xml:lang="en">Specifies the desired or actual time of arrival at the destination</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/arrivalTime</IRI>
+        <Literal xml:lang="en">arrivalTime</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/currency</IRI>
+        <Literal xml:lang="en">The currency used for ticket pricing or services.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/currency</IRI>
+        <Literal xml:lang="en">currency</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/departureDateInput</IRI>
+        <Literal xml:lang="en">Specifies the intended date of departure.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/departureDateInput</IRI>
+        <Literal xml:lang="en">departureDateInput</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/departureInput</IRI>
+        <Literal xml:lang="en">Refers to the information regarding the place and/or time from which a trip begins.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/departureInput</IRI>
+        <Literal xml:lang="en">departureInput</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/departureTime</IRI>
+        <Literal xml:lang="en">The specific time at which the journey is scheduled to begin.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/departureTime</IRI>
+        <Literal>departureTime</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/hasAffordance</IRI>
+        <Literal xml:lang="en">Indicates the actions or interactions supported by a particular service or stop.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/hasAffordance</IRI>
+        <Literal xml:lang="en">hasAffordance</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/hasDestination</IRI>
+        <Literal xml:lang="en">Relates a trip or leg of a journey to its final stop.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/hasDestination</IRI>
+        <Literal xml:lang="en">hasDestination</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/hasOperation</IRI>
+        <Literal xml:lang="en">Connects a service to the operations it provides.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/hasOperation</IRI>
+        <Literal xml:lang="en">hasOperation</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/hasStop</IRI>
+        <Literal xml:lang="en">Specifies a stop that is part of a transportation line or trip.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/hasStop</IRI>
+        <Literal xml:lang="en">hasStop</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/hasTripForward</IRI>
+        <Literal xml:lang="en">Indicates the next sequential step in a trip plan.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/hasTripForward</IRI>
+        <Literal xml:lang="en">hasTripForward</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/price</IRI>
+        <Literal xml:lang="en">Specifies the cost of the ticket or transportation service.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/price</IRI>
+        <Literal xml:lang="en">price</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/providedBy</IRI>
+        <Literal xml:lang="en">Indicates that a particular resource or entity is offered by a specific trip planning or transportation service.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/providedBy</IRI>
+        <Literal xml:lang="en">providedBy</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/requiresTicket</IRI>
+        <Literal xml:lang="en">Indicates that a particular service or transportation line requires a valid ticket.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/requiresTicket</IRI>
+        <Literal xml:lang="en">requiresTicket</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/schema</IRI>
+        <Literal xml:lang="en">Defines a reference to a structural description or standard used in the data.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/schema</IRI>
+        <Literal xml:lang="en">schema</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/usesLine</IRI>
+        <Literal xml:lang="en">Specifies the transportation line used by a trip.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/usesLine</IRI>
+        <Literal>usesLine</Literal>
+    </AnnotationAssertion>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
+
